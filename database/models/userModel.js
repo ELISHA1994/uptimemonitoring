@@ -4,9 +4,13 @@ const userSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     password: String,
+    phone: String,
     tosAgreement: Boolean,
     checks: [
-        { type: mongoose.Schema.Types.ObjectId, ref:'Check'}
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Check'
+        }
     ]
 }, {
     timestamps: true,

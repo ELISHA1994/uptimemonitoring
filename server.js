@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import {basicErrorHandler, handle404, normalizePort, onError, onListening} from "./utils/utils.js";
 import connection from "./database/connection.js";
 import middleware from "./middlewares/middleware.js";
+import { router as userRouter } from "./routes/userRoutes.js";
 
 
 dotenv.config();
@@ -22,8 +23,11 @@ app.set('port', port);
 // Middlewares
 middleware(app);
 
+//create a route to handle user API
+app.use('/api/v1/user', userRouter);
+
 // Health Check Route
-app.get('/status', function (req, res, net) {
+app.get('/api/v1/status', function (req, res, net) {
     return res.status(200).json({ msg: 'Server is up and running !'})
 });
 

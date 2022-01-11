@@ -8,6 +8,10 @@ const checkSchema = new mongoose.Schema({
     timeoutSeconds: Number,
     state: String,
     userPhone: String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 }, {
     timestamps: true,
     toObject: {
