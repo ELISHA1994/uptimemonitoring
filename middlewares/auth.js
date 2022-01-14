@@ -11,7 +11,8 @@ export default async function validateToken(req, res, next) {
         }
 
         const decoded = await jwt.verify(token, process.env.SECRET_KEY || 'MY-SECRET-KEY')
-        console.log('decoded', decoded);
+        req.id = decoded.id;
+        req.userPhone = decoded.phone
         return next();
     } catch (error) {
         console.log('Error', error);

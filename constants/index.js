@@ -12,8 +12,17 @@ export default {
         USER_NOT_FOUND: 'User not found',
         INVALID_PASSWORD: 'Incorrect Password',
         USER_FETCH: 'User Fetched Successfully',
+        USER_CHECK_FETCH: 'User Checks Fetched Successfully',
         USER_UPDATED: 'User Updated Successfully',
         USER_DELETED: 'User Deleted Successfully'
+    },
+
+    checkMessage: {
+        CHECK_CREATED: 'Check Created Successfully',
+        CHECK_FETCHED: 'Check Fetched Successfully',
+        CHECK_UPDATED: 'Check Updated Successfully',
+        CHECK_DELETED: 'Check Deleted Successfully',
+        CHECK_NOT_FOUND: 'Check Not Found'
     },
 
     requestValidationMessage: {

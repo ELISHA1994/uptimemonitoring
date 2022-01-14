@@ -3,6 +3,11 @@ import { default as DBG } from 'debug';
 const debug = DBG('server:debug');
 const dbgerror = DBG('server:error');
 
+// Try Catch higher other function (HOC)
+export const use = fn => (req, res, next) =>
+    Promise.resolve(fn(req, res, next)).catch(next);
+
+
 export function normalizePort(val) {
     const port = parseInt(val, 10);
     if (isNaN(port)) {
@@ -43,12 +48,12 @@ export function onListening() {
     debug(`Listening on ${bind}`);
 }
 
-export function handle404(req, res, next) {
+export function handle404(req, res) {
     res.status(404).json({ error: 'Not found' });
 }
 
-export function basicErrorHandler(err, req, res) {
-    // console.error(err.stack)
+export function basicErrorHandler(err, req, res, next) {
+    console.error(err)
     res.status(500).json({
         status: 500,
         message: err.message,
